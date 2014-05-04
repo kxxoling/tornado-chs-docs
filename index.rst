@@ -9,24 +9,22 @@
 .. |Tornado Web Server| image:: tornado.png
     :alt: Tornado Web Server
 
-`Tornado <http://www.tornadoweb.org>`_ is a Python web framework and
-asynchronous networking library, originally developed at `FriendFeed
-<http://friendfeed.com>`_.  By using non-blocking network I/O, Tornado
-can scale to tens of thousands of open connections, making it ideal for
-`long polling <http://en.wikipedia.org/wiki/Push_technology#Long_polling>`_,
-`WebSockets <http://en.wikipedia.org/wiki/WebSocket>`_, and other
-applications that require a long-lived connection to each user.
+`Tornado <http://www.tornadoweb.org>`_ 既是一个 Python web 框架，也是一个异步网络库，
+最初由 `FriendFeed <http://friendfeed.com>`_ 开发。 通过使用非阻塞式的网络 I/O，
+Tornado 能够应对数以万计的网络连接，非常适合
+`long polling <http://en.wikipedia.org/wiki/Push_technology#Long_polling>`_ 以及 
+`WebSockets <http://en.wikipedia.org/wiki/WebSocket>`_ 这样需要长时间与用户保持连接状态
+的技术和应用。
 
-Upgrade notes
--------------
+升级须知
+-------
 
-As of Tornado 3.2, the `backports.ssl_match_hostname
-<https://pypi.python.org/pypi/backports.ssl_match_hostname>`_ package
-must be installed when running Tornado on Python 2.  This will be
-installed automatically when using ``pip`` or ``easy_install``.
+对于 Tornado 3.2，如果要运行在 Python 2 环境中，则必须安装 
+`backports.ssl_match_hostname <https://pypi.python.org/pypi/backports.ssl_match_hostname>`_。
+如果你使用 ``pip`` 或者 ``easy_install`` 包管理器，它将会被自动安装.
 
-Quick links
------------
+快速链接
+-------
 
 * :doc:`Documentation <documentation>`
 * |Download current version|: :current_tarball:`z` (:doc:`release notes <releases>`)
@@ -40,7 +38,7 @@ Quick links
 Hello, world
 ------------
 
-Here is a simple "Hello, world" example web app for Tornado::
+这是一个简单的 Tornado “Hello, world” 的例子 ::
 
     import tornado.ioloop
     import tornado.web
@@ -57,24 +55,21 @@ Here is a simple "Hello, world" example web app for Tornado::
         application.listen(8888)
         tornado.ioloop.IOLoop.instance().start()
 
-This example does not use any of Tornado's asynchronous features; for
-that see this `simple chat room
-<https://github.com/facebook/tornado/tree/master/demos/chat>`_.
+该例子并未使用任何 Tornado 的异步特性，想要感受 Tornado 异步开发可以看看下面这个例子：
+`simple chat room <https://github.com/facebook/tornado/tree/master/demos/chat>`_.
 
-Installation
+安装
 ------------
 
-**Automatic installation**::
+**自动安装**::
 
     pip install tornado
 
-Tornado is listed in `PyPI <http://pypi.python.org/pypi/tornado>`_ and
-can be installed with ``pip`` or ``easy_install``.  Note that the
-source distribution includes demo applications that are not present
-when Tornado is installed in this way, so you may wish to download a
-copy of the source tarball as well.
+Tornado 已经在 `PyPI <http://pypi.python.org/pypi/tornado>`_ 目录中，因此你可以使用
+ ``pip`` 或者 ``easy_install``安装。 注意：Tornado 的源代码中包括了 demo 应用，
+但通过该方法安装则没有，所以也许你有必要单独下载 Tornado 的源码包。
 
-**Manual installation**: Download :current_tarball:`z`:
+**手动安装**: Download :current_tarball:`z`:
 
 .. parsed-literal::
 
@@ -83,16 +78,13 @@ copy of the source tarball as well.
     python setup.py build
     sudo python setup.py install
 
-The Tornado source code is `hosted on GitHub
-<https://github.com/facebook/tornado>`_.
+Tornado 的源代码托管在 `GitHub <https://github.com/facebook/tornado>`_ 上。
 
-**Prerequisites**: Tornado runs on Python 2.6, 2.7, 3.2, 3.3, and 3.4.  It
-requires the `certifi <https://pypi.python.org/pypi/certifi>`_ package
-on all Python versions, and the `backports.ssl_match_hostname
-<https://pypi.python.org/pypi/backports.ssl_match_hostname>`_ package
-on Python 2.  These will be installed automatically when using
-``pip`` or ``easy_install``).  Some Tornado features may
-require one of the following optional libraries:
+**安装依赖**: Tornado 可以运行于 Python 2.6, 2.7, 3.2, 3.3, 3.4 等版本，在所有版本中都依赖 
+`certifi <https://pypi.python.org/pypi/certifi>`_ ，在 Python 2 环境下依赖 
+`backports.ssl_match_hostname <https://pypi.python.org/pypi/backports.ssl_match_hostname>`_ 。
+（在使用 ``pip`` 或者 ``easy_install`` 时这些都将会自动安装。）. 
+Tornado 的某些特性和功能还会产生以下依赖：
 
 * `unittest2 <https://pypi.python.org/pypi/unittest2>`_ is needed to run
   Tornado's test suite on Python 2.6 (it is unnecessary on more recent
@@ -113,32 +105,23 @@ require one of the following optional libraries:
   a monotonic clock, which improves reliability in environments
   where clock adjustments are frequent.  No longer needed in Python 3.3.
 
-**Platforms**: Tornado should run on any Unix-like platform, although
-for the best performance and scalability only Linux (with ``epoll``)
-and BSD (with ``kqueue``) are recommended for production deployment
-(even though Mac OS X is derived from BSD and supports kqueue, its
-networking performance is generally poor so it is recommended only for
-development use).  Tornado will also run on Windows, although this
-configuration is not officially supported and is recommended only for
-development use.
+**平台**: 理论上，Tornado 可以运行于任何类 Unix 平台，不过为了最佳的性能和扩展性，
+推荐使用（支持 ``epoll`` 的） Linux 和（支持 ``kqueue`` 的）BSD 系统作为生产环境的部署系统。
+（虽然 Mac OS X 也起源于 BSD 并且支持 kqueue，但其网络性能并不佳，因此仅仅推荐作为开发环境。）
+虽然没有官方配置，不过 Tornado 也支持 Windows，同样仅推荐作为开发环境使用。
 
-Discussion and support
-----------------------
+讨论和支持
+---------
 
-You can discuss Tornado on `the Tornado developer mailing list
-<http://groups.google.com/group/python-tornado>`_, and report bugs on
-the `GitHub issue tracker
-<https://github.com/facebook/tornado/issues>`_.  Links to additional
-resources can be found on the `Tornado wiki
-<https://github.com/facebook/tornado/wiki/Links>`_.
+你可以在 `Tornado 开发者邮件列表 <http://groups.google.com/group/python-tornado>`_
+中参与讨论，在 `GitHub issue tracker <https://github.com/facebook/tornado/issues>`_ 
+上提交 bug。其它资源参见 `Tornado wiki <https://github.com/facebook/tornado/wiki/Links>`_。
 
-Tornado is one of `Facebook's open source technologies
-<http://developers.facebook.com/opensource/>`_. It is available under
-the `Apache License, Version 2.0
-<http://www.apache.org/licenses/LICENSE-2.0.html>`_.
+Tornado 来自于 `Facebook's open source technologies <http://developers.facebook.com/opensource/>`_ 
+遵循 `Apache License, Version 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>`_ 协议开源。
 
-This web site and all documentation is licensed under `Creative
-Commons 3.0 <http://creativecommons.org/licenses/by/3.0/>`_.
+本站所有文档遵循 `Creative Commons 3.0 <http://creativecommons.org/licenses/by/3.0/>`_ 共享协议。
+中文文档遵循 `Creative Commons 3.0 BY-NC-SA<http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh>`_ 共享协议，请勿用于商业用途。
 
 .. toctree::
    :hidden:
