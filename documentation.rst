@@ -1,5 +1,5 @@
-Tornado Documentation
-=====================
+Tornado 中文文档
+===============
 
 .. toctree::
    :titlesonly:
@@ -11,12 +11,12 @@ Tornado Documentation
    utilities
    releases
 
-This documentation is also available in `PDF and Epub formats
+本文档提供以下格式下载 `PDF、Epub 格式
 <https://readthedocs.org/projects/tornado/downloads/>`_.
 
 
-Indices and tables
-==================
+索引与表格
+=========
 
 * :ref:`genindex`
 * :ref:`modindex`

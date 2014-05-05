@@ -1,13 +1,12 @@
-``tornado.platform.twisted`` --- Bridges between Twisted and Tornado
+``tornado.platform.twisted`` --- Twisted 与 Tornado 之间的桥梁
 ========================================================================
 
 .. module:: tornado.platform.twisted
 
-This module lets you run applications and libraries written for
-Twisted in a Tornado application.  It can be used in two modes,
-depending on which library's underlying event loop you want to use.
+该模块使得 为 Twisted 所编写的应用和类库可以在 Tornado 中运行，其方法有两种，
+取决于你想要使用哪个底层事件循环。
 
-This module has been tested with Twisted versions 11.0.0 and newer.
+该模块已通过 Twisted 11.0.0 及以后版本测试。
 
 Twisted on Tornado
 ------------------

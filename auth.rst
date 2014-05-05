@@ -1,4 +1,4 @@
-``tornado.auth`` --- Third-party login with OpenID and OAuth
+``tornado.auth`` --- 第三方 OpenID 或者 OAuth 登录
 ============================================================
 
 .. automodule:: tornado.auth
@@ -6,11 +6,8 @@
    Common protocols
    ----------------
 
-   These classes implement the OpenID and OAuth standards.  They will
-   generally need to be subclassed to use them with any particular site.
-   The degree of customization required will vary, but in most cases
-   overridding the class attributes (which are named beginning with
-   underscores for historical reasons) should be sufficient.
+   这些类都是对 OpenID 或者 OAuth 标准的实现，想要在特定网站上使用，需要进一步实现它，
+   其定制程度因网站可能大不相同，不过大多数情况只需要重载类属性（由于历史原因，以下划线开头）即可。
 
    .. autoclass:: OpenIdMixin
       :members:
