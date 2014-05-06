@@ -1,5 +1,5 @@
-``tornado.options`` --- Command-line parsing
-============================================
+``tornado.options`` --- 命令行解析
+=================================
 
 .. automodule:: tornado.options
 

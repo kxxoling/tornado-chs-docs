@@ -7,8 +7,8 @@
 
     .. autoclass:: Future
 
-    Consumer methods
-    ^^^^^^^^^^^^^^^^
+    消费者方法
+    ^^^^^^^^^
 
     .. automethod:: Future.result
     .. automethod:: Future.exception
@@ -19,8 +19,8 @@
     .. automethod:: Future.cancel
     .. automethod:: Future.cancelled
 
-    Producer methods
-    ^^^^^^^^^^^^^^^^
+    生产者方法
+    ^^^^^^^^^
 
     .. automethod:: Future.set_result
     .. automethod:: Future.set_exception

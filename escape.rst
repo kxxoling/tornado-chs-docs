@@ -15,19 +15,17 @@
    .. autofunction:: json_encode
    .. autofunction:: json_decode
 
-   Byte/unicode conversions
-   ------------------------
-   These functions are used extensively within Tornado itself,
-   but should not be directly needed by most applications.  Note that 
-   much of the complexity of these functions comes from the fact that
-   Tornado supports both Python 2 and Python 3.
+   Byte/unicode 转换
+   -----------------
+   这些函数在 Tornado 内部广泛使用，但对于大多数应用来说并不直接需要。注意：这些函数有些复杂，
+   主要是 Tornado 需要同时支持 Python 2 和 Python 3.
 
    .. autofunction:: utf8
    .. autofunction:: to_unicode
    .. function:: native_str
 
-      Converts a byte or unicode string into type `str`.  Equivalent to
-      `utf8` on Python 2 and `to_unicode` on Python 3.
+      将 byte 或者 unicode 字符串转换为 `str` 类型，向当于 Python 2 中的 `utf8` 
+      或者 Python 3 中的 `to_unicode`。
 
    .. autofunction:: to_basestring
 

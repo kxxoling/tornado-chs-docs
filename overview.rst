@@ -26,8 +26,7 @@ connection to the FriendFeed servers. (For more information on scaling
 servers to support thousands of clients, see `The C10K problem
 <http://www.kegel.com/c10k.html>`_.)
 
-Here is the canonical "Hello, world" example app:
-
+下面是一个权威的 “Hello, world” 应用示例：
 ::
 
     import tornado.ioloop

@@ -1,10 +1,10 @@
-``tornado.httpclient`` --- Asynchronous HTTP client
-===================================================
+``tornado.httpclient`` --- 异步 HTTP 客户端
+==========================================
 
 .. automodule:: tornado.httpclient
 
-   HTTP client interfaces
-   ----------------------
+   HTTP 客户端接口
+   --------------
 
    .. autoclass:: HTTPClient
       :members:
@@ -12,13 +12,13 @@
    .. autoclass:: AsyncHTTPClient
       :members:
 
-   Request objects
-   ---------------
+   Request 对象
+   ------------
    .. autoclass:: HTTPRequest
       :members:
    
-   Response objects
-   ----------------
+   Response 对象
+   -------------
    .. autoclass:: HTTPResponse
       :members:
 
@@ -27,14 +27,13 @@
    .. autoexception:: HTTPError
       :members:
 
-   Command-line interface
-   ----------------------
+   命令行接口
+   ---------
 
-   This module provides a simple command-line interface to fetch a url
-   using Tornado's HTTP client.  Example usage::
+   该模块使用 Tornado HTTP 客户端实现了一个简单的命令行请求 URL 的接口。示例：
 
-      # Fetch the url and print its body
+      # 请求 URL 并输出请求体
       python -m tornado.httpclient http://www.google.com
 
-      # Just print the headers
+      # 仅仅打印请求头信息
       python -m tornado.httpclient --print_headers --print_body=false http://www.google.com
