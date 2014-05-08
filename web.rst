@@ -1,4 +1,4 @@
-``tornado.web`` --- ``RequestHandler`` and ``Application`` classes
+``tornado.web`` --- ``RequestHandler`` 与 ``Application`` 
 ==================================================================
 
 .. automodule:: tornado.web
@@ -16,10 +16,8 @@
 
    .. _verbs:
 
-   Implement any of the following methods (collectively known as the
-   HTTP verb methods) to handle the corresponding HTTP method.
-   These methods can be made asynchronous with one of the following
-   decorators: `.gen.coroutine`, `.return_future`, or `asynchronous`.
+   实现下列方法（即 HTTP verb 方法）以处理 HTTP 请求，可以通过这些装饰器实现异步：
+   `.gen.coroutine`、`.return_future` 或者 `asynchronous`。
 
    .. automethod:: RequestHandler.get
    .. automethod:: RequestHandler.post
@@ -28,7 +26,7 @@
    .. automethod:: RequestHandler.head
    .. automethod:: RequestHandler.options
 
-   Input
+   输入
    ^^^^^
 
    .. automethod:: RequestHandler.get_argument
@@ -40,19 +38,17 @@
    .. automethod:: RequestHandler.decode_argument
    .. attribute:: RequestHandler.request
 
-      The `tornado.httputil.HTTPServerRequest` object containing additional
-      request parameters including e.g. headers and body data.
+      `tornado.httputil.HTTPServerRequest` 对象包含了额外的请求参数，
+      包括请求头和请求体数据。
 
    .. attribute:: RequestHandler.path_args
    .. attribute:: RequestHandler.path_kwargs
 
-      The ``path_args`` and ``path_kwargs`` attributes contain the
-      positional and keyword arguments that are passed to the
-      :ref:`HTTP verb methods <verbs>`.  These attributes are set
-      before those methods are called, so the values are available
-      during `prepare`.
+      ``path_args`` 和 ``path_kwargs`` 属性包含了传递给 
+      :ref:`HTTP verb 方法 <verbs>` 的参数，这些请求会在方法调用前设置好，
+      因此可以在 `prepare` 中使用。
 
-   Output
+   输出
    ^^^^^^
 
    .. automethod:: RequestHandler.set_status
@@ -73,7 +69,7 @@
    .. automethod:: RequestHandler.data_received
 
 
-   Cookies
+   Cookie
    ^^^^^^^
 
    .. autoattribute:: RequestHandler.cookies
@@ -85,7 +81,7 @@
    .. automethod:: RequestHandler.set_secure_cookie
    .. automethod:: RequestHandler.create_signed_value
 
-   Other
+   其它
    ^^^^^
 
    .. attribute:: RequestHandler.application
@@ -114,7 +110,7 @@
 
 
 
-   Application configuration
+   应用配置
    -----------------------------
    .. autoclass:: Application
       :members:
@@ -132,7 +128,7 @@
          handlers without using global variables.  Settings used in
          Tornado are described below.
 
-         General settings:
+         常规设置:
 
          * ``autoreload``: If ``True``, the server process will restart
            when any source files change, as described in :ref:`debug-mode`.
@@ -161,7 +157,7 @@
            May be set to a module, dictionary, or a list of modules
            and/or dicts.  See :ref:`ui-modules` for more details.
 
-         Authentication and security settings:
+         身份认证和安全设置:
 
          * ``cookie_secret``: Used by `RequestHandler.get_secure_cookie`
            and `.set_secure_cookie` to sign cookies.
@@ -175,7 +171,7 @@
            ``facebook_api_key``, ``facebook_secret``:  Used in the
            `tornado.auth` module to authenticate to various APIs.
 
-         Template settings:
+         模板设置:
 
          * ``autoescape``: Controls automatic escaping for templates.
            May be set to ``None`` to disable escaping, or to the *name*
@@ -194,7 +190,7 @@
            settings are ignored.  Can be further customized by overriding
            `RequestHandler.create_template_loader`.
 
-         Static file settings:
+         静态文件设置:
 
          * ``static_hash_cache``: Default is ``True``; if ``False``
            static urls will be recomputed on every request.  This option
@@ -212,9 +208,9 @@
 
    .. autoclass:: URLSpec
 
-      The ``URLSpec`` class is also available under the name ``tornado.web.url``.
+      ``URLSpec`` 类也可以通过 ``tornado.web.url`` 引入。
 
-   Decorators
+   装饰器
    ----------
    .. autofunction:: asynchronous
    .. autofunction:: authenticated
@@ -222,7 +218,7 @@
    .. autofunction:: removeslash
    .. autofunction:: stream_request_body
 
-   Everything else
+   其它
    ---------------
    .. autoexception:: HTTPError
    .. autoexception:: MissingArgumentError
