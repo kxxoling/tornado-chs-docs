@@ -3,12 +3,12 @@
 
 .. automodule:: tornado.iostream
 
-   Base class
+   基类
    ----------
 
    .. autoclass:: BaseIOStream
 
-   Main interface
+   主要接口
    ^^^^^^^^^^^^^^
 
    .. automethod:: BaseIOStream.write
@@ -23,7 +23,7 @@
    .. automethod:: BaseIOStream.writing
    .. automethod:: BaseIOStream.set_nodelay
 
-   Methods for subclasses
+   提供给子类的方法
    ^^^^^^^^^^^^^^^^^^^^^^
 
    .. automethod:: BaseIOStream.fileno
@@ -32,7 +32,7 @@
    .. automethod:: BaseIOStream.read_from_fd
    .. automethod:: BaseIOStream.get_fd_error
 
-   Implementations
+   实现
    ---------------
 
    .. autoclass:: IOStream
@@ -44,7 +44,7 @@
    .. autoclass:: PipeIOStream
       :members:
 
-   Exceptions
+   异常
    ----------
 
    .. autoexception:: StreamClosedError

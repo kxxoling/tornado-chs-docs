@@ -1,4 +1,4 @@
-``tornado.process`` --- Utilities for multiple processes
+``tornado.process`` --- 多进程支持实用工具
 ========================================================
 
 .. automodule:: tornado.process

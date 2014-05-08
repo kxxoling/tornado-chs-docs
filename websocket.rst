@@ -1,11 +1,11 @@
-``tornado.websocket`` --- Bidirectional communication to the browser
+``tornado.websocket`` --- 与浏览器之间的双向交流
 ====================================================================
 
 .. automodule:: tornado.websocket
 
    .. autoclass:: WebSocketHandler
 
-   Event handlers
+   事件 handler
    --------------
 
    .. automethod:: WebSocketHandler.open
@@ -13,20 +13,20 @@
    .. automethod:: WebSocketHandler.on_close
    .. automethod:: WebSocketHandler.select_subprotocol
 
-   Output
+   输出
    ------
 
    .. automethod:: WebSocketHandler.write_message
    .. automethod:: WebSocketHandler.close
 
-   Configuration
+   配置
    -------------
 
    .. automethod:: WebSocketHandler.allow_draft76
    .. automethod:: WebSocketHandler.get_websocket_scheme
    .. automethod:: WebSocketHandler.set_nodelay
 
-   Other
+   其它
    -----
 
    .. automethod:: WebSocketHandler.async_callback

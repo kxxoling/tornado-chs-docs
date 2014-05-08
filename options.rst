@@ -21,7 +21,7 @@
    .. autofunction:: add_parse_callback
    .. autoexception:: Error
 
-   OptionParser class
+   OptionParser 类
    ------------------
 
    .. autoclass:: OptionParser

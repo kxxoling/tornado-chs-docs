@@ -1,4 +1,4 @@
-Release notes
+版本更新
 =============
 
 .. toctree::

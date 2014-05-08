@@ -1,4 +1,4 @@
-Core web framework
+web 框架核心
 ==================
 
 .. toctree::
