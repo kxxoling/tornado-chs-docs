@@ -3,30 +3,25 @@
 Overview
 ========
 
-`FriendFeed's <http://friendfeed.com/>`_ web server is a relatively
-simple, non-blocking web server written in Python. The FriendFeed
-application is written using a web framework that looks a bit like
-`web.py <http://webpy.org/>`_ or Google's
-`webapp <http://code.google.com/appengine/docs/python/tools/webapp/>`_,
-but with additional tools and optimizations to take advantage of the
-non-blocking web server and tools.
 
-`Tornado <https://github.com/facebook/tornado>`_ is an open source
-version of this web server and some of the tools we use most often at
-FriendFeed. The framework is distinct from most mainstream web server
-frameworks (and certainly most Python frameworks) because it is
-non-blocking and reasonably fast. Because it is non-blocking and uses
-`epoll
-<http://www.kernel.org/doc/man-pages/online/pages/man4/epoll.4.html>`_
-or kqueue, it can handle thousands of simultaneous standing
-connections, which means the framework is ideal for real-time web
-services. We built the web server specifically to handle FriendFeed's
-real-time features — every active user of FriendFeed maintains an open
-connection to the FriendFeed servers. (For more information on scaling
-servers to support thousands of clients, see `The C10K problem
-<http://www.kegel.com/c10k.html>`_.)
+`FriendFeed's <http://friendfeed.com/>`_ 使用了一款使用 Python 编写的，
+相对简单的非阻塞式 web 服务器。其应用程序使用的 web 框架看起来有些像 
+`web.py <http://webpy.org/>`_ 或者 Google 的 
+`webapp <http://code.google.com/appengine/docs/python/tools/webapp/>`_，
+不过为了能有效利用非阻塞式服务器环境，该 web 框架还包含了一些相关的有用工具和优化。
 
-下面是一个权威的 “Hello, world” 应用示例：
+
+`Tornado <https://github.com/facebook/tornado>`_ 就是我们在 FriendFeed 的 
+web 服务器以及其常用工具的开源版本。Tornado 和现在的主流 web 服务器框架
+（包括大多数 Python 的框架）有着明显的区别：它是非阻塞式的，因此速度相当快。
+得利于其非阻塞的方式以及对 `epoll
+<http://www.kernel.org/doc/man-pages/online/pages/man4/epoll.4.html>`_ 
+的运用，Tornado 每秒可以处理数以千计的连接，因此 Tornado 是一个理想的实时 web 服务框架。
+我们开发这个 web 服务器的主要目的就是为了处理 FriendFeed 的实时功能——每一个 FriendFeed 
+活动用户都会保持着一个服务器连接。（关于如何扩容服务器以处理数以千计的客户端连接的问题，
+请参阅 `The C10K problem<http://www.kegel.com/c10k.html>`_）
+
+下面是一个经典的 “Hello, world” 应用示例：
 ::
 
     import tornado.ioloop
@@ -44,21 +39,19 @@ servers to support thousands of clients, see `The C10K problem
         application.listen(8888)
         tornado.ioloop.IOLoop.instance().start()
 
-We attempted to clean up the code base to reduce interdependencies
-between modules, so you should (theoretically) be able to use any of the
-modules independently in your project without using the whole package.
+我们清理了 Tornado 的基础代码，减少了各模块之间的相互依赖关系，所以理论上讲，
+你可以在自己的项目中独立地使用任何模块，而不需要使用整个包。
 
-Request handlers and request arguments
+请求 handler 和请求参数
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-A Tornado web application maps URLs or URL patterns to subclasses of
-`tornado.web.RequestHandler`. Those classes define ``get()`` or
-``post()`` methods to handle HTTP ``GET`` or ``POST`` requests to that
-URL.
+Tornado web 应用实例会将 URL 或者 URL 模式与 `tornado.web.RequestHandler` 
+的子类映射起来，这些子类通过定义 ``get()`` 或者 ``post()`` 方法来处理 
+对应 URL 的 HTTP ``GET`` 或者 ``POST`` 请求。
 
-This code maps the root URL ``/`` to ``MainHandler`` and the URL pattern
-``/story/([0-9]+)`` to ``StoryHandler``. Regular expression groups are
-passed as arguments to the ``RequestHandler`` methods:
+下面这段代码将 URL ``/`` 与 ``MainHandler`` 以及 URL 模式
+``/story/([0-9]+)`` 与 ``StoryHandler`` 映射起来，
+正则表达式被当作参数传递给 ``RequestHandler`` 的方法:
 
 ::
 
@@ -91,45 +84,39 @@ You can get query string arguments and parse ``POST`` bodies with the
             self.set_header("Content-Type", "text/plain")
             self.write("You wrote " + self.get_argument("message"))
 
-Uploaded files are available in ``self.request.files``, which maps names
-(the name of the HTML ``<input type="file">`` element) to a list of
-files. Each file is a dictionary of the form
-``{"filename":..., "content_type":..., "body":...}``.
+上传的文件可以在 ``self.request.files`` 中被访问到，该对象将名字（HTML 
+``<input type="file">`` 元素的 name 属性）与文件列表相对应。每个文件都是一个 form 字典，
+格式为：``{"filename":..., "content_type":..., "body":...}``。
 
-If you want to send an error response to the client, e.g., 403
-Unauthorized, you can just raise a ``tornado.web.HTTPError`` exception:
+如果你希望向客户端发送错误请求，比如 403 Unauthorized，可以直接 raise 一个 
+``tornado.web.HTTPError`` 异常。
 
 ::
 
     if not self.user_is_logged_in():
         raise tornado.web.HTTPError(403)
 
-The request handler can access the object representing the current
-request with ``self.request``. The ``HTTPRequest`` object includes a
-number of useful attributes, including:
+请求 handler 可以通过 ``self.request`` 访问到当前请求对象，``HTTPRequest`` 对象
+中包含了一系列有用的属性，包括：
 
--  ``arguments`` - all of the ``GET`` and ``POST`` arguments
--  ``files`` - all of the uploaded files (via ``multipart/form-data``
-   POST requests)
--  ``path`` - the request path (everything before the ``?``)
--  ``headers`` - the request headers
+-  ``arguments`` - 所有 ``GET`` 、 ``POST`` 参数
+-  ``files`` - 所有（通过 ``multipart/form-data`` POST 请求）上传的文件
+-  ``path`` - 请求的路径（``?`` 之前的所有内容）
+-  ``headers`` - 请求头
 
-See the class definition for `tornado.httputil.HTTPServerRequest` for a
-complete list of attributes.
+`tornado.httputil.HTTPServerRequest` 所有属性列表参见 `tornado.httputil.HTTPServerRequest` 
+类描述
 
-Overriding RequestHandler methods
+重载 RequestHandler 的方法
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In addition to ``get()``/``post()``/etc, certain other methods in
-``RequestHandler`` are designed to be overridden by subclasses when
-necessary. On every request, the following sequence of calls takes
-place:
+不仅仅是 get()/post() 等方法，RequestHandler 中的其它方法函数都是一些空函数，
+它们存在的目的在于，根据需要被子类重载。对于每一个请求，其处理过程都是这样的：
 
-1. A new RequestHandler object is created on each request
-2. ``initialize()`` is called with keyword arguments from the
-   ``Application`` configuration. (the ``initialize`` method is new in
-   Tornado 1.1; in older versions subclasses would override ``__init__``
-   instead). ``initialize`` should typically just save the arguments
+1. 应用为每一个请求创建一个 RequestHandler 对象
+2. 调用 ``initialize()`` 方法，其参数来自于 ``Application`` 配置。
+   （``initialize`` 是 Tornado 1.1 中新引入的，在更早的版本中子类需要重载 ``__init__``）
+   ``initialize`` should typically just save the arguments
    passed into member variables; it may not produce any output or call
    methods like ``send_error``.
 3. ``prepare()`` is called. This is most useful in a base class shared
