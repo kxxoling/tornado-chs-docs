@@ -1,4 +1,4 @@
-``tornado.escape`` --- Escaping and string manipulation
+``tornado.escape`` --- 转义及字符串操作
 =======================================================
 
 .. automodule:: tornado.escape
@@ -31,7 +31,7 @@
 
    .. autofunction:: recursive_unicode
 
-   Miscellaneous functions
-   -----------------------
+   其他函数
+   -------
    .. autofunction:: linkify
    .. autofunction:: squeeze
