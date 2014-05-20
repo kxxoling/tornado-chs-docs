@@ -13,7 +13,9 @@
    Yield points
    ------------
 
-   这些类的实例可能会在生成器内部的 yield 表达式中使用，
+   这些类的实例可能会在生成器内部的 yield 表达式中使用，`Futures <.Future>` 同样可以被 yield，
+   其结果方法会在合适的时候被调用。
+   另外，
    Instances of the following classes may be used in yield expressions
    in the generator.  `Futures <.Future>` may be yielded as well;
    their result method will be called automatically when they are
@@ -38,16 +40,14 @@
 
    .. autofunction:: maybe_future
 
-   Other classes
-   -------------
+   其它类
+   -----
 
    .. autoexception:: Return
 
    .. class:: Arguments
 
-      The result of a yield expression whose callback had more than one
-      argument (or keyword arguments).
+      回调函数（关键词）参数超过一个的 yield 表达式的结果。
 
-      The `Arguments` object is a `collections.namedtuple` and can be
-      used either as a tuple ``(args, kwargs)`` or an object with attributes
-      ``args`` and ``kwargs``.
+      `Arguments` 对象同时也是 `collections.namedtuple` 对象，既可以被当作 ``(args, kwargs)`` 
+      这样的元组，也可以被当作拥有 ``args`` 和 ``kwargs`` 参数的对象。
