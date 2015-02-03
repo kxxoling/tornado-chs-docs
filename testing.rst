@@ -1,9 +1,9 @@
-``tornado.testing`` --- Unit testing support for asynchronous code
+``tornado.testing`` --- 提供异步代码的测试支持
 ==================================================================
 
 .. automodule:: tornado.testing
 
-   Asynchronous test cases
+   异步测试用历
    -----------------------
 
    .. autoclass:: AsyncTestCase
@@ -17,7 +17,7 @@
 
    .. autofunction:: gen_test
 
-   Controlling log output
+   日志管理
    ----------------------
 
    .. autoclass:: ExpectLog

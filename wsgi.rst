@@ -1,9 +1,9 @@
-``tornado.wsgi`` --- Interoperability with other Python frameworks and servers
+``tornado.wsgi`` --- 和其它 Python 框架、服务器结合
 ==============================================================================
 
 .. automodule:: tornado.wsgi
 
-   Running Tornado apps on WSGI servers
+   Tornado 应用 ＋ WSGI 服务器
    ------------------------------------
 
    .. autoclass:: WSGIAdapter
@@ -12,8 +12,8 @@
    .. autoclass:: WSGIApplication
       :members:
 
-   Running WSGI apps on Tornado servers
+   WSGI 应用 ＋ Tornado 服务器
    ------------------------------------
-  
+
    .. autoclass:: WSGIContainer
       :members:

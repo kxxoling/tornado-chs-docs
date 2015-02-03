@@ -1,19 +1,19 @@
-``tornado.options`` --- Command-line parsing
+``tornado.options`` --- 命令行解析
 ============================================
 
 .. automodule:: tornado.options
 
 
 
-   Global functions
+   全局函数
    ----------------
-   
+
    .. autofunction:: define
 
    .. py:data:: options
 
-       Global options object.  All defined options are available as attributes
-       on this object.
+       全局的 options 对象，所有配置属性都在这个对象上。
+
 
    .. autofunction:: parse_command_line
    .. autofunction:: parse_config_file
@@ -21,7 +21,7 @@
    .. autofunction:: add_parse_callback
    .. autoexception:: Error
 
-   OptionParser class
+   配置解析
    ------------------
 
    .. autoclass:: OptionParser

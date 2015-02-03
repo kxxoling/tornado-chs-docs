@@ -1,4 +1,4 @@
-Web framework
+Web 框架
 =============
 
 .. toctree::
