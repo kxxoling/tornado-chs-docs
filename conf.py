@@ -2,14 +2,13 @@
 import os
 import sys
 sys.path.insert(0, os.path.abspath(".."))
-import tornado
 
 master_doc = "index"
 
 project = "Tornado"
 copyright = "2011, Facebook"
 
-version = release = tornado.version
+version = release = "4.02"
 
 extensions = [
     "sphinx.ext.autodoc",
