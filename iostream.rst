@@ -1,14 +1,14 @@
-``tornado.iostream`` --- Convenient wrappers for non-blocking sockets
+``tornado.iostream`` --- 非阻塞 socket 相关封装
 =====================================================================
 
 .. automodule:: tornado.iostream
 
-   Base class
+   基类
    ----------
 
    .. autoclass:: BaseIOStream
 
-   Main interface
+   主要接口
    ^^^^^^^^^^^^^^
 
    .. automethod:: BaseIOStream.write
@@ -32,7 +32,7 @@
    .. automethod:: BaseIOStream.read_from_fd
    .. automethod:: BaseIOStream.get_fd_error
 
-   Implementations
+   实现
    ---------------
 
    .. autoclass:: IOStream
@@ -44,7 +44,7 @@
    .. autoclass:: PipeIOStream
       :members:
 
-   Exceptions
+   异常
    ----------
 
    .. autoexception:: StreamBufferFullError
