@@ -3,7 +3,7 @@
 
 .. automodule:: tornado.testing
 
-   异步测试用历
+   异步测试用例
    -----------------------
 
    .. autoclass:: AsyncTestCase
@@ -26,12 +26,12 @@
    .. autoclass:: LogTrapTestCase
       :members:
 
-   Test runner
+   测试运行器
    -----------
 
    .. autofunction:: main
 
-   Helper functions
+   辅助方法
    ----------------
 
    .. autofunction:: bind_unused_port
