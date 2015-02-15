@@ -1,4 +1,4 @@
-``tornado.ioloop`` --- Main event loop
+``tornado.ioloop`` --- 主事件循环
 ======================================
 
 .. automodule:: tornado.ioloop
@@ -8,7 +8,7 @@
 
    .. autoclass:: IOLoop
 
-   Running an IOLoop
+   运行 IOLoop
    ^^^^^^^^^^^^^^^^^
 
    .. automethod:: IOLoop.current
@@ -22,14 +22,14 @@
    .. automethod:: IOLoop.run_sync
    .. automethod:: IOLoop.close
 
-   I/O events
+   I/O 事件
    ^^^^^^^^^^
 
    .. automethod:: IOLoop.add_handler
    .. automethod:: IOLoop.update_handler
    .. automethod:: IOLoop.remove_handler
 
-   Callbacks and timeouts
+   回调与超时
    ^^^^^^^^^^^^^^^^^^^^^^
 
    .. automethod:: IOLoop.add_callback
@@ -44,7 +44,7 @@
    .. autoclass:: PeriodicCallback
       :members:
 
-   Debugging and error handling
+   调试与事件处理
    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
    .. automethod:: IOLoop.handle_callback_exception
